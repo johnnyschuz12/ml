@@ -36,10 +36,7 @@ def run_nn(mnist_training, mnist_val):
         image, label = mnist_training[i]          # returns PIL image with its labels
         ax.set_title(f"Label: {label}")
         ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
-<<<<<<< HEAD
-=======
     plt.savefig('./nn/results/pil.png')
->>>>>>> 1baf84f (handwriting_recognition/fashion: Add fashion)
     plt.show()
 
     fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(1.5*cols, 2*rows))
@@ -47,12 +44,7 @@ def run_nn(mnist_training, mnist_val):
         image, label = mnist_training[i][0], train_predictions[i]          # returns PIL image with its labels
         ax.set_title(f"Train?: {label}")
         ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
-<<<<<<< HEAD
-
-    plt.savefig('nn/results/train.png')
-=======
     plt.savefig('./nn/results/train.png')
->>>>>>> 1baf84f (handwriting_recognition/fashion: Add fashion)
     plt.show()
 
     fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(1.5*cols, 2*rows))
@@ -60,10 +52,5 @@ def run_nn(mnist_training, mnist_val):
         image, label = mnist_val[i][0], val_predictions[i]          # returns PIL image with its labels
         ax.set_title(f"Test?: {label}")
         ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
-
-<<<<<<< HEAD
-    plt.savefig('nn/results/val.png')
-=======
     plt.savefig('./nn/results/val.png')
->>>>>>> 1baf84f (handwriting_recognition/fashion: Add fashion)
     plt.show()

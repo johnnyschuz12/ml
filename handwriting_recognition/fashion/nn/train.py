@@ -40,26 +40,15 @@ def train_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
     # Plot learning curve.
     plt.plot(losses)
     plt.title("Loss vs Epoch")
-<<<<<<< HEAD
-    plt.savefig('nn/results/losses.png')
-=======
     plt.savefig('./nn/results/losses.png')
->>>>>>> 1baf84f (handwriting_recognition/fashion: Add fashion)
     plt.show()
 
     # Plot learning curve.
     plt.plot(accs)
     plt.title("Accuracy vs Epoch")
-<<<<<<< HEAD
-    plt.savefig('nn/results/accs.png')
-    plt.show()
-
-    torch.save(model, "nn/model.h5")
-=======
     plt.savefig('./nn/results/accs.png')
     plt.show()
 
     torch.save(model, "./nn/model.h5")
->>>>>>> 1baf84f (handwriting_recognition/fashion: Add fashion)
 
     return model
