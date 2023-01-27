@@ -29,6 +29,6 @@ def validate_model(mnist_val):
     # of classified images.
     acc = sum(predicted_classes.numpy() == labels.numpy()) / n
 
-    loss = loss_fn(predictions, labels)
+    loss = float(loss_fn(predictions, labels))
 
     return predicted_classes, acc, loss
