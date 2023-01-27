@@ -49,6 +49,6 @@ def train_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
     plt.savefig('./nn/results/accs.png')
     plt.show()
 
-    torch.save(model, "nn/model.h5")
+    torch.save(model, "./nn/model.h5")
 
     return model

@@ -50,15 +50,15 @@ def train_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
     # Plot learning curve.
     plt.plot(losses)
     plt.title("Loss vs Epoch")
-    plt.savefig('cnn/results/losses.png')
+    plt.savefig('./cnn/results/losses.png')
     plt.show()
 
     # Plot learning curve.
     plt.plot(accs)
     plt.title("Accuracy vs Epoch")
-    plt.savefig('cnn/results/accs.png')
+    plt.savefig('./cnn/results/accs.png')
     plt.show()
 
-    torch.save(model, "cnn/model.h5")
+    torch.save(model, "./cnn/model.h5")
 
     return model

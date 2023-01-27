@@ -2,7 +2,7 @@ import torch
 import matplotlib.pyplot as plt
 
 def validate_model(mnist_val):
-    model = torch.load("nn/model.h5")
+    model = torch.load("./nn/model.h5")
 
     # Use CrossEntropyLoss for as loss function.
     loss_fn = torch.nn.CrossEntropyLoss()
