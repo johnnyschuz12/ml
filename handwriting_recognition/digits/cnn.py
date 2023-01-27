@@ -11,7 +11,6 @@ t = transforms.ToTensor()
 mnist_training = datasets.MNIST(root='/tmp/mnist', train=True, download=True, transform=t)
 mnist_val = datasets.MNIST(root='/tmp/mnist', train=False, download=True, transform=t)
 
-
 # Optimized parameters
 epochs = 10
 batch_size = 100
@@ -42,6 +41,7 @@ for i, ax in enumerate(axes.flatten()):
     image, label = mnist_training[i]          # returns PIL image with its labels
     ax.set_title(f"Label: {label}")
     ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
+plt.savefig('results/pil.png')
 plt.show()
 
 fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(1.5*cols, 2*rows))
@@ -49,6 +49,7 @@ for i, ax in enumerate(axes.flatten()):
     image, label = mnist_training[i][0], train_predictions[i]          # returns PIL image with its labels
     ax.set_title(f"Train?: {label}")
     ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
+plt.savefig('results/cnn/train.png')
 plt.show()
 
 fig, axes = plt.subplots(nrows=rows, ncols=cols, figsize=(1.5*cols, 2*rows))
@@ -56,4 +57,5 @@ for i, ax in enumerate(axes.flatten()):
     image, label = mnist_val[i][0], val_predictions[i]          # returns PIL image with its labels
     ax.set_title(f"Test?: {label}")
     ax.imshow(image.squeeze(0), cmap='gray')  # we get a 1x28x28 tensor -> remove first dimension
+plt.savefig('results/cnn/val.png')
 plt.show()

@@ -19,6 +19,7 @@ def train_nn_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
 
     # Training of the model. We use 10 epochs.
     losses = []
+    accs = []
 
     for epoch in range(epochs):
         for imgs, labels in train_loader:
@@ -43,6 +44,7 @@ def train_nn_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
 
     return model
 
+
 # Convolutional neural network with pooling
 def train_cnn_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
     model = torch.nn.Sequential(
@@ -65,6 +67,7 @@ def train_cnn_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
     train_loader = torch.utils.data.DataLoader(mnist_training, batch_size=batch_size, shuffle=True)
 
     losses = []
+    accs = []
 
     # Train the model
     for epoch in range(epochs):
@@ -78,8 +81,11 @@ def train_cnn_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
             loss.backward()
             optimizer.step()
             train_loss += loss.item()
-            train_acc += (output.argmax(1) == labels).float().mean()
+            acc = (output.argmax(1) == labels).float().mean()
+            train_acc += acc
             losses.append(float(loss))
+            accs.append(acc)
+
         train_loss /= i + 1
         train_acc /= i + 1
         print(f'Epoch: {epoch+1}, Loss: {train_loss:.4f}, Acc: {train_acc:.4f}')
@@ -87,6 +93,12 @@ def train_cnn_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
 
     # Plot learning curve.
     plt.plot(losses)
+    plt.savefig('results/cnn/losses.png')
+    plt.show()
+
+    # Plot learning curve.
+    plt.plot(accs)
+    plt.savefig('results/cnn/accs.png')
     plt.show()
 
 
