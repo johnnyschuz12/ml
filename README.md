@@ -9,10 +9,10 @@ Classify digits (0-9) based on the MNIST dataset.
 
 ## Real-World Objects
 
-Classify images such as trucks, bats, planes, ship, etc... from the CIFAR dataset.
+Classify images such as trucks, bats, planes and ships from the CIFAR dataset.
 
 ## 
 
 ## Fashion Dataset
 
-Identify different types of clothing such as shoes, pants, shirts, etc... based on the FashionMNIST dataset.
+Identify different types of clothing such as shoes, pants and shirts based on the FashionMNIST dataset.
