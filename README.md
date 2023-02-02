@@ -3,10 +3,16 @@ Repository of Useful ML Applications
 
 ## Handwritten Digits
 
-Classify digits based on the MNIST dataset.
+Classify digits (0-9) based on the MNIST dataset.
 
 ## 
 
 ## CIFAR Dataset
 
-Classify images such as trucks, bats, planes and ships.
+Classify images such as trucks, bats, planes, ship, etc... from the CIFAR dataset.
+
+## 
+
+## Fashion Dataset
+
+Identify different types of clothing such as shoes, pants, shirts, etc.
