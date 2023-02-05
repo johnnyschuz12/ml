@@ -27,7 +27,7 @@ def run_nn(mnist_training, mnist_val, tform=None):
     # Train the model and save it
     model, uniques = train_model(mnist_training, epochs, batch_size, lr, tform)
 
-    #model = torch.load("./nn/model.h5")
+    #model = torch.load("./alexnet/model.h5")
 
     # Validate the model by making predictions
     train_predictions = validate_model(mnist_training, uniques)
@@ -37,19 +37,19 @@ def run_nn(mnist_training, mnist_val, tform=None):
         (image, label) = next(iter(mnist_training))
 
         real_label = uniques(label)
-        imshow(utils.make_grid(image.squeeze(0)), './nn/results/pil.png', label)
+        imshow(utils.make_grid(image.squeeze(0)), './alexnet/results/pil.png', label)
 
     with torch.no_grad():
         (image, label) = next(iter(mnist_training))
         outputs = model(image)
         # the class with the highest energy is what we choose as prediction
         _, predicted = torch.max(outputs.data, 1)
-        imshow(utils.make_grid(image.squeeze(0)), './nn/results/train.png', predicted)
+        imshow(utils.make_grid(image.squeeze(0)), './alexnet/results/train.png', predicted)
 
     with torch.no_grad():
         (image, label) = next(iter(mnist_val))
         outputs = model(image)
         # the class with the highest energy is what we choose as prediction
         _, predicted = torch.max(outputs.data, 1)
-        imshow(utils.make_grid(image.squeeze(0)), './nn/results/val.png', predicted)
+        imshow(utils.make_grid(image.squeeze(0)), './alexnet/results/val.png', predicted)
 

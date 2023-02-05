@@ -118,15 +118,15 @@ def train_model(trainloader, epochs=10, batch_size=500, lr=0.01, tform=None):
     # Plot learning curve.
     plt.plot(losses)
     plt.title("Loss vs Epoch")
-    plt.savefig('./nn/results/losses.png')
+    plt.savefig('./alexnet/results/losses.png')
     plt.show()
 
     # Plot learning curve.
     plt.plot(accs)
     plt.title("Accuracy vs Epoch")
-    plt.savefig('./nn/results/accs.png')
+    plt.savefig('./alexnet/results/accs.png')
     plt.show()
 
-    torch.save(model, "./nn/model.h5")
+    torch.save(model, "./alexnet/model.h5")
 
     return model, uniques
