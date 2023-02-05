@@ -29,10 +29,10 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
                                          shuffle=False)
 
 # Run NN
-#run_nn(trainloader, testloader)
+run_nn(trainloader, testloader)
 
 # Run CNN
-#run_cnn(trainloader, testloader)
+run_cnn(trainloader, testloader)
 
 # Run RESNET
 run_resnet(trainloader, testloader)

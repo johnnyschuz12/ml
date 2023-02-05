@@ -25,7 +25,7 @@ def train_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
         for imgs, labels in train_loader:
             n = len(imgs)
             # Reshape data from [500, 1, 28, 28] to [500, 784] and use the model to make predictions.
-            predictions = model(imgs.view(n, -1))  
+            predictions = model(imgs.view(n, -1))
             # Compute the loss.
             loss = loss_fn(predictions, labels) 
             opt.zero_grad()

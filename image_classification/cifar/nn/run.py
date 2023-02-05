@@ -35,19 +35,19 @@ def run_nn(mnist_training, mnist_val):
 
     with torch.no_grad():
         (image, label) = next(iter(mnist_training))
-        imshow(utils.make_grid(image.squeeze(0)), './cnn/results/pil.png', label)
+        imshow(utils.make_grid(image.squeeze(0)), './nn/results/pil.png', label)
 
     with torch.no_grad():
         (image, label) = next(iter(mnist_training))
         outputs = model(image)
         # the class with the highest energy is what we choose as prediction
         _, predicted = torch.max(outputs.data, 1)
-        imshow(utils.make_grid(image.squeeze(0)), './cnn/results/train.png', predicted)
+        imshow(utils.make_grid(image.squeeze(0)), './nn/results/train.png', predicted)
 
     with torch.no_grad():
         (image, label) = next(iter(mnist_val))
         outputs = model(image)
         # the class with the highest energy is what we choose as prediction
         _, predicted = torch.max(outputs.data, 1)
-        imshow(utils.make_grid(image.squeeze(0)), './cnn/results/val.png', predicted)
+        imshow(utils.make_grid(image.squeeze(0)), './nn/results/val.png', predicted)
 
