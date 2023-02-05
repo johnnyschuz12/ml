@@ -59,6 +59,7 @@ def train_model(trainloader, epochs=10, batch_size=500, lr=0.01):
     model = Net()
     if torch.cuda.is_available():
         model = model.cuda()
+    model = nn.DataParallel(model)
 
     # Use standard gradient descent optimizer
     opt = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)

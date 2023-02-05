@@ -8,6 +8,10 @@ def train_model(mnist_training, epochs=10, batch_size=500, lr=0.01):
         torch.nn.ReLU(),
         torch.nn.Linear(256, 10)
     )
+    if torch.cuda.is_available():
+        model = model.cuda()
+    model = nn.DataParallel(model)
+
     # Use Adam as optimizer.
     opt = torch.optim.Adam(params=model.parameters())
 

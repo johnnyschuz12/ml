@@ -15,6 +15,9 @@ def train_model(mnist_training, epochs=10, batch_size=100, lr=0.001):
     torch.nn.ReLU(),
     torch.nn.Linear(1024, 10)
     )
+    if torch.cuda.is_available():
+        model = model.cuda()
+    model = nn.DataParallel(model)
 
     loss_fn = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters())

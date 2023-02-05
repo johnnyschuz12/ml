@@ -26,6 +26,9 @@ class CIFAR10Model(nn.Module):
 # Neural network with linear activation
 def train_model(trainloader, epochs=10, batch_size=500, lr=0.01):
     model = CIFAR10Model()
+    if torch.cuda.is_available():
+        model = model.cuda()
+    model = nn.DataParallel(model)
 
     # Use standard gradient descent optimizer
     opt = optim.Adam(model.parameters(), lr=lr) #, weight_decay=0.001)

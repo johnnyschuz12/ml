@@ -52,9 +52,9 @@ def alexnet(pretrained=False, **kwargs):
         pretrained (bool): if True, returns a model pre-trained on ImageNet
     """
     model = AlexNet(**kwargs)
-    if pretrained:
-        # model.load_state_dict(model_zoo.load_url(model_urls['alexnet']))
-        model.load_state_dict(torch.load(os.path.join(models_dir, model_name)))
+    if torch.cuda.is_available():
+        model = model.cuda()
+    model = nn.DataParallel(model)
     return model
 
 # Neural network with linear activation
@@ -63,7 +63,6 @@ def train_model(trainloader, epochs=10, batch_size=500, lr=0.01, tform=None):
     valloader = ds_val.pytorch(num_workers=0, batch_size=batch_size, transform = {'images': tform, 'labels': None}, shuffle = True)
 
     model = alexnet()
-    model = nn.DataParallel(model)
 
     # Use standard gradient descent optimizer
     opt = optim.Adam(model.parameters(), lr=lr) #, weight_decay=0.001)
