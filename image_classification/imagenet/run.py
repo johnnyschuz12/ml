@@ -1,8 +1,5 @@
-import cnn
 import alexnet
-from cnn.run import run_cnn
 from alexnet.run import run_nn
-from resnet.run import run_resnet
 import torch
 import torchvision
 from torchvision import datasets, transforms, utils
