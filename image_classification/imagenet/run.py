@@ -27,10 +27,4 @@ tform = transforms.Compose([
 # testloader = ds_test.pytorch(num_workers=0, batch_size=4, transform = {'images': tform}, shuffle = True)
 
 # Run NN
-run_nn(ds_train, ds_val)
-
-# Run CNN
-#run_cnn(ds_train, ds_val)
-
-# Run RESNET
-#run_resnet(ds_train, ds_val)
+run_nn(ds_train, ds_val, tform)

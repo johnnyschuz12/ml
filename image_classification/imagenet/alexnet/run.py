@@ -18,14 +18,14 @@ def imshow(img, file, predictions):
     plt.savefig(file)
     plt.show()
 
-def run_nn(mnist_training, mnist_val):
+def run_nn(mnist_training, mnist_val, tform=None):
     # Optimized parameters
     epochs = 10
     batch_size = 500
     lr=0.01
 
     # Train the model and save it
-    model, uniques = train_model(mnist_training, epochs, batch_size, lr)
+    model, uniques = train_model(mnist_training, epochs, batch_size, lr, tform)
 
     #model = torch.load("./nn/model.h5")
 

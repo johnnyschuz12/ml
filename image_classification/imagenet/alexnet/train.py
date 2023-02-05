@@ -58,7 +58,7 @@ def alexnet(pretrained=False, **kwargs):
     return model
 
 # Neural network with linear activation
-def train_model(trainloader, epochs=10, batch_size=500, lr=0.01):
+def train_model(trainloader, epochs=10, batch_size=500, lr=0.01, tform=None):
     trainloader = ds_train.pytorch(num_workers=0, batch_size=batch_size, transform = {'images': tform, 'labels': None}, shuffle = True)
     valloader = ds_val.pytorch(num_workers=0, batch_size=batch_size, transform = {'images': tform, 'labels': None}, shuffle = True)
 
